@@ -25,9 +25,9 @@ public class StringUtilities {
         String back="";
         for(int i=valueToBeReversed.length()-1; i>=0; i--){
             back+=valueToBeReversed.charAt(i);
+        }
+        return back;
     }
-    return back;
-}
 
     /**
      * @param word word to get middle character of
@@ -40,7 +40,7 @@ public class StringUtilities {
         }else if(word.length()%2==1){
             m=word.charAt(word.length()/2);
         }
-        
+
         return m;
     }
 
@@ -50,12 +50,18 @@ public class StringUtilities {
      * @return `value` with char of value `charToRemove` removed
      */
     public String removeCharacter(String value, Character charToRemove) {
-    int x = value.indexOf(charToRemove);
-        StringBuilder sb = new StringBuilder(value);
-        sb.deleteCharAt(x);
-        String result = sb.toString();
-      
-        return result;
+        int i = 0;
+        while (i < value.length()) {
+            char ch = value.charAt(i);
+            if(ch == charToRemove){
+                String before = value.substring(0, i);
+                String after = value.substring(i + 1);
+                value = before + after;
+            } else {
+                i++;
+            }
+        }
+        return value;
     }
 
     /**
@@ -64,7 +70,7 @@ public class StringUtilities {
      */
     public String getLastWord(String sentence) {
         String lastWord = sentence.substring(sentence.lastIndexOf(" ") +1);
-        
+
         return lastWord;
     }
 }

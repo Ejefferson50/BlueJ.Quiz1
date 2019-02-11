@@ -1,5 +1,5 @@
  
-
+import java.util.Scanner;
 public class LoopFun
 {
 
@@ -25,10 +25,12 @@ public class LoopFun
        * @return Upper case string of the first letter of each word
        */
       public String acronym(String phrase) {
-       char[] stringToCharArray = phrase.toCharArray();
+       String result = "";
+       for (char x : phrase.toCharArray())
+       if(Character.isUpperCase(x))
+       result += x;
        
-          
-          return null;
+       return result;
       }
 
       /**
